@@ -10,8 +10,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
-  FirebaseCrashlytics.instance.crash();
+  // FirebaseCrashlytics.instance.crash();
   runApp(const Bytebank2App());
 }
 
