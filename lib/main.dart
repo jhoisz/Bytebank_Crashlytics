@@ -3,18 +3,6 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const Bytebank2App());
-  // save(
-  //   Transaction(
-  //     200,
-  //     Contact(0, 'Gui', 2000),
-  //   ),
-  // ).then(
-  //   (transaction) {
-  //     print(transaction);
-  //   },
-  // );
-  // findAll().then((transactions) => print('new transaction $transactions'));
-  // save(Contact(1, 'Jhois', 1000));
 }
 
 class Bytebank2App extends StatelessWidget {
