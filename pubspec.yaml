@@ -38,6 +38,8 @@ dependencies:
   http:
   http_interceptor:
   uuid:
+  firebase_core: ^2.0.0
+  firebase_crashlytics: ^3.0.1
 
 dev_dependencies:
   flutter_test:
