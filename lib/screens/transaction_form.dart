@@ -24,6 +24,8 @@ class _TransactionFormState extends State<TransactionForm> {
   final TransactionWebClient _webClient = TransactionWebClient();
   final String transactionId = const Uuid().v4();
 
+  // final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     // print('transaction form id $transactionId');
@@ -31,6 +33,7 @@ class _TransactionFormState extends State<TransactionForm> {
       appBar: AppBar(
         title: const Text('New transaction'),
       ),
+      // key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -161,13 +164,9 @@ class _TransactionFormState extends State<TransactionForm> {
 
   void _showFailureMessage(
     BuildContext context,
-    String? message,
+    String message,
   ) {
-    showDialog(
-      context: context,
-      builder: (contextDialog) {
-        return FailureDialog(message ?? 'Unknown Error');
-      },
-    );
+    final snackBar = SnackBar(content: Text(message));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
