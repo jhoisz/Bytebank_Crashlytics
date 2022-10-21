@@ -41,7 +41,7 @@ class TransactionWebClient {
 
     // throwHttpError(response.statusCode);
     // throw HttpException(_getMessage(500));
-    throw HttpException(_getMessage(response.statusCode));
+    throw HttpException(_getMessage(response.statusCode), response.statusCode);
   }
 
   String? _getMessage(int statusCode) {
@@ -60,5 +60,6 @@ class TransactionWebClient {
 
 class HttpException implements Exception {
   final String? message;
-  HttpException(this.message);
+  final int? statusCode;
+  HttpException(this.message, this.statusCode);
 }

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bytebank2/components/response_dialog.dart';
 import 'package:bytebank2/components/transaction_auth_dialog.dart';
 import 'package:bytebank2/http/webclients/transaction_webclient.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
@@ -23,6 +24,8 @@ class _TransactionFormState extends State<TransactionForm> {
   final TransactionWebClient _webClient = TransactionWebClient();
   final String transactionId = const Uuid().v4();
 
+  // final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     // print('transaction form id $transactionId');
@@ -30,6 +33,7 @@ class _TransactionFormState extends State<TransactionForm> {
       appBar: AppBar(
         title: const Text('New transaction'),
       ),
+      // key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -125,12 +129,33 @@ class _TransactionFormState extends State<TransactionForm> {
       BuildContext context) async {
     final Transaction? transaction =
         await _webClient.save(transactionCreated, password).catchError((e) {
+      if (FirebaseCrashlytics.instance.isCrashlyticsCollectionEnabled) {
+        FirebaseCrashlytics.instance.setCustomKey('exception', e.toString());
+        FirebaseCrashlytics.instance
+            .setCustomKey('http_body', transactionCreated.toString());
+        FirebaseCrashlytics.instance.setCustomKey('http_code', e.statusCode);
+        FirebaseCrashlytics.instance.recordError(e, null);
+      }
+
       _showFailureMessage(context, e.message);
       // print(e);
     }, test: (e) => e is HttpException).catchError((e) {
+      if (FirebaseCrashlytics.instance.isCrashlyticsCollectionEnabled) {
+        FirebaseCrashlytics.instance.setCustomKey('exception', e.toString());
+        FirebaseCrashlytics.instance
+            .setCustomKey('http_body', transactionCreated.toString());
+
+        FirebaseCrashlytics.instance.recordError(e, null);
+      }
       _showFailureMessage(context, 'timeout submitting the transaction');
       // print(e);
     }, test: (e) => e is TimeoutException).catchError((e) {
+      if (FirebaseCrashlytics.instance.isCrashlyticsCollectionEnabled) {
+        FirebaseCrashlytics.instance.setCustomKey('exception', e.toString());
+        FirebaseCrashlytics.instance
+            .setCustomKey('http_body', transactionCreated.toString());
+        FirebaseCrashlytics.instance.recordError(e, null);
+      }
       _showFailureMessage(context, e.message);
       // print(e);
     });
@@ -139,13 +164,9 @@ class _TransactionFormState extends State<TransactionForm> {
 
   void _showFailureMessage(
     BuildContext context,
-    String? message,
+    String message,
   ) {
-    showDialog(
-      context: context,
-      builder: (contextDialog) {
-        return FailureDialog(message ?? 'Unknown Error');
-      },
-    );
+    final snackBar = SnackBar(content: Text(message));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
