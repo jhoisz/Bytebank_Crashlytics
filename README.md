@@ -2,7 +2,7 @@
 
 ## ℹ️ Sobre o projeto
 
-Aplicação **mobile** desenvolvida durante o curso [Flutter: entendendo comunicação HTTP e utilizando Web API](https://cursos.alura.com.br/course/flutter-comunicacao-http) de Flutter, na plataforma **[Alura](https://www.alura.com.br/)**, pelo instrutor [Alex Felipe](https://cursos.alura.com.br/user/alexfelipe).
+Aplicação **mobile** desenvolvida durante o curso Flutter: Firebase Crashlytics, gere relatórios de erro em tempo real](https://cursos.alura.com.br/course/flutter-firebase-crashlytics-relatorios-tempo-real) de Flutter, na plataforma **[Alura](https://www.alura.com.br/)**, pelo instrutor [Leonardo Marinho](https://cursos.alura.com.br/user/leonardomarinho).
 
 ## ☁️ Firebase, Exceções e Crashlytics
 
@@ -115,6 +115,19 @@ Neste projeto foram usadas as seguintes tecnologias:
 > Linguagem [Dart](https://dart.dev/)
 
 > [Firebase](https://firebase.google.com/)
+
+## ✨ Funcionalidades
+Esse projeto foi realizado com  base no [projeto anterior](https://github.com/jhoisz/Bytebank-api-v2), de funcionalidades extras, o projeto usa uma [SnackBar](https://docs.flutter.dev/cookbook/design/snackbars), no lugar de Alerts Dialogs, e todos os erros estão configurados para serem capturados pelo Firebase Crashlytics e exibidos no Dashboard.
+
+<p align="center">
+  <img src="https://github.com/jhoisz/Bytebank_Crashlytics/blob/main/crashlyticsapp.gif" alt= "Gif colorido da aplicação desenvolvida demonstrando os erros possiveis." />
+</p>
+
+O Dashboard do Firebase Crashlytics apresenta diversas vantagens de análise, como por exemplo, o tipo do dispositivo usado, sistema operacional, orientação da tela e do sistema, versão, dentre outros detalhes. Além de, claro, o erro ocorrido em detalhes para facilitar a correção.
+
+<p align="center">
+  <img src="https://github.com/jhoisz/Bytebank_Crashlytics/blob/main/crashlytics.gif" alt= "Dashboard do Firebase Crashlytics" />
+</p>
 
 ## :arrow_forward: Como executar
 
