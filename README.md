@@ -46,7 +46,7 @@ _E para que isso é útil?_ Com esses dados em mãos podemos mapear quais erros 
 
 ### 🔎 **Identificando erros**
 
-Para inicializar o Firebase Crashlytics, além da preparação de ambiente presente na documentação, também precisamos inicializar e _informar_ que os erros devem ser reportados na `main.dart`, da seguinte maneira:
+Para inicializar o Firebase Crashlytics, além da preparação de ambiente presente na [documentação](https://firebase.flutter.dev/docs/crashlytics/overview/), também precisamos inicializar e _informar_ que os erros devem ser reportados na `main.dart`, da seguinte maneira:
 
 ```dart
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,7 +58,7 @@ Para inicializar o Firebase Crashlytics, além da preparação de ambiente prese
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 ```
 
-A instrução `FirebaseCrashlytics.instance.recordError(e, null)` envia um erro para o Firebase Crashlytics, mas uma forma de descrever melhor ainda o erro e ajudar o desenvolvedor a identificá-lo é usando pares de chave e valor costumizados, da seguinte forma: `FirebaseCrashlytics.instance.recordError(error, stack)`.
+A instrução `FirebaseCrashlytics.instance.recordError(e, null)` envia um erro para o Firebase Crashlytics, mas uma forma de descrever melhor ainda o erro e ajudar o desenvolvedor a identificá-lo é usando pares de chave e valor customizados, da seguinte forma: `FirebaseCrashlytics.instance.recordError(error, stack)`.
 
 E também, é importante identificar o usuário de alguma forma, usando `FirebaseCrashlytics.instance.setUserIdentifier('identifier')` na `main.dart`, por exemplo.
 
