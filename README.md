@@ -4,9 +4,7 @@
 
 Aplicação **mobile** desenvolvida durante o curso [Flutter: entendendo comunicação HTTP e utilizando Web API](https://cursos.alura.com.br/course/flutter-comunicacao-http) de Flutter, na plataforma **[Alura](https://www.alura.com.br/)**, pelo instrutor [Alex Felipe](https://cursos.alura.com.br/user/alexfelipe).
 
-## :ledger: Conhecimentos adiquiridos
-
-### ☁️ Firebase, Exceções e Crashlytics
+## ☁️ Firebase, Exceções e Crashlytics
 
 O **Firebase** é uma suíte de soluções do Google com diversas ferramentos úteis para o desenvolvimento de aplicações, sendo uma delas o **Crashlytics**, solução usada para registrar em tempo real as incidências de erros e problemas que podem afetar o uso da aplicação.
 
@@ -30,7 +28,7 @@ _E para que isso é útil?_ Com esses dados em mãos podemos mapear quais erros 
 - Falha no servidor
 - Rota não encontrada
 
-#### 🪧 Códigos HTTP
+### 🪧 Códigos HTTP
 
 - `100-199` Respostas de informação
 - `200-299` Respostas de sucesso
@@ -38,7 +36,7 @@ _E para que isso é útil?_ Com esses dados em mãos podemos mapear quais erros 
 - `400-499` Erros do cliente
 - `500-599` Erros do servidor
 
-#### ❌ Erros mais comuns:
+### ❌ Erros mais comuns:
 
 - `403` Forbidden: Não autorizado
 - `404` Não encontrado
@@ -46,7 +44,7 @@ _E para que isso é útil?_ Com esses dados em mãos podemos mapear quais erros 
 - `503` Serviço indisponível
 - `504` Gateway timeout: Demora na requisição
 
-#### 🔎 **Identificando erros**
+### 🔎 **Identificando erros**
 
 Para inicializar o Firebase Crashlytics, além da preparação de ambiente presente na documentação, também precisamos inicializar e _informar_ que os erros devem ser reportados na `main.dart`, da seguinte maneira:
 
@@ -64,7 +62,7 @@ A instrução `FirebaseCrashlytics.instance.recordError(e, null)` envia um erro 
 
 E também, é importante identificar o usuário de alguma forma, usando `FirebaseCrashlytics.instance.setUserIdentifier('identifier')` na `main.dart`, por exemplo.
 
-#### 🪲 **Modo Debug**
+### 🪲 **Modo Debug**
 
 Quando estamos apenas testando alguns erros não é interessante que eles sejam enviados para o Dashboard do Crashlytics, para evitar _spam_, portanto precisamos verificar se estamos no modo debug ou não, da seguinte maneira:
 
@@ -94,6 +92,18 @@ if (FirebaseCrashlytics.instance.isCrashlyticsCollectionEnabled) {
 
   FirebaseCrashlytics.instance.recordError(e, null);
 }
+```
+
+### 🗺️ Zoned Error
+
+_Zoned Error_ é usado para mapear zonas de erros da aplicação e conseguir detectar erros que o Flutter sozinho não pode. É capaz de capturar erros no dart, por exemplo, erros de compilação, interpretação ou alguma ação inesperada.
+
+Para usar o Zoned Error, de forma simples, basta inserir o `runApp()` dentro da seguinte instrução:
+
+```dart
+  runZonedGuarded<Future<void>>(() async {
+   // ...
+  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
 ```
 
 ## :sparkles: Funcionalidades do projeto
