@@ -1,4 +1,4 @@
-<h1 align="center"> :moneybag: Bytebank 4️⃣  </h1>
+<h1 align="center"> Bytebank com Firebase Crashlytics 📊 </h1>
 
 ## ℹ️ Sobre o projeto
 
@@ -106,10 +106,6 @@ Para usar o Zoned Error, de forma simples, basta inserir o `runApp()` dentro da 
   }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
 ```
 
-## :sparkles: Funcionalidades do projeto
-
-:construction: Projeto em construção :construction:
-
 ## :hammer: Tecnologias usadas
 
 Neste projeto foram usadas as seguintes tecnologias:
@@ -118,6 +114,8 @@ Neste projeto foram usadas as seguintes tecnologias:
 
 > Linguagem [Dart](https://dart.dev/)
 
+> [Firebase](https://firebase.google.com/)
+
 ## :arrow_forward: Como executar
 
 Primeiro você deve [instalar flutter](https://docs.flutter.dev/get-started/install).
@@ -125,8 +123,8 @@ Primeiro você deve [instalar flutter](https://docs.flutter.dev/get-started/inst
 Então, você pode clocar e entrar na pasta do projeto:
 
 ```bash
-git clone https://github.com/jhoisz/Bytebank-api-v2
-cd Bytebank-api-v2
+git clone https://github.com/jhoisz/Bytebank_Crashlytics
+cd Bytebank_Crashlytics
 ```
 
 Agora, para testar, você deve instalar os pacotes/dependêncas e usar um dispositivo conectado ao seu computador ou usar um emulador:
