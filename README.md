@@ -2,7 +2,7 @@
 
 ## ℹ️ Sobre o projeto
 
-Aplicação **mobile** desenvolvida durante o curso Flutter: Firebase Crashlytics, gere relatórios de erro em tempo real](https://cursos.alura.com.br/course/flutter-firebase-crashlytics-relatorios-tempo-real) de Flutter, na plataforma **[Alura](https://www.alura.com.br/)**, pelo instrutor [Leonardo Marinho](https://cursos.alura.com.br/user/leonardomarinho).
+Aplicação **mobile** desenvolvida durante o curso [Flutter: Firebase Crashlytics, gere relatórios de erro em tempo real](https://cursos.alura.com.br/course/flutter-firebase-crashlytics-relatorios-tempo-real) de Flutter, na plataforma **[Alura](https://www.alura.com.br/)**, pelo instrutor [Leonardo Marinho](https://cursos.alura.com.br/user/leonardomarinho). O Bytebank App é a simulação do aplicativo de um banco, você é capaz de criar contatos, transferir dinheiro, ver transações antigas, alterar o nome do usuário, usando comunicação http e persistência.
 
 ## ☁️ Firebase, Exceções e Crashlytics
 
@@ -139,6 +139,7 @@ Então, você pode clocar e entrar na pasta do projeto:
 git clone https://github.com/jhoisz/Bytebank_Crashlytics
 cd Bytebank_Crashlytics
 ```
+Antes de rodar a aplicação, também é necessário seguir o passo a passo para [configuração do Firebase Crashlytics no Flutter](https://firebase.flutter.dev/docs/crashlytics/overview).
 
 Agora, para testar, você deve instalar os pacotes/dependêncas e usar um dispositivo conectado ao seu computador ou usar um emulador:
 
